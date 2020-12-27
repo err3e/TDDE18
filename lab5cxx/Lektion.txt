@@ -1,0 +1,74 @@
+#include <vector>
+#include <iostream>
+#include <string>
+#include <algorithm>
+#include <map> 
+
+using namespace std;
+
+int main() {
+    vector<int> v{};
+    istream_iterator<int> iis{cin} //behöver denna strömmen
+    istream_iterator<int> eof; //slut-condition.
+
+    // int value1{*iis}; DEtta fungerar ej utan loopar tydligen
+    // ++iis;
+    // int value2{*iis} //value1 o 2 kommer ha olika värden. Använd istället:
+
+    //kopieringskonstruktor
+    copy(iis, eof, back_inserted(v)) 
+    //hämtar värden och sätter in bakifrån. Den behöver ett slut-condition, den defineras i eof.
+    
+    
+    
+    
+    //Läs från fil
+
+    //Lite olika sätt att få iteratorn att fungera.
+    //for (auto i{0}) it!=end(v); it++){cout << v[i] << ""} annat sätt att skriva det.
+    for(auto it{begin(v)}; it != end(v); it++) {
+    //Kolla cpp för att få full koll på det. Auto förbereder för att it(begin) kan innehålla vad som helst.
+    {
+        cout << *it << "";
+    }
+
+    //För att korta ner den övre loopen och göra den mer kompakt. Rekommenderar att börja med den övre dock för att förstå osv. 
+    for(auto i : v){
+        //kod
+    }
+
+    //sortera, behåll jämna nummer
+    sort(begin(v), end(v), [kan skicka med en sorteringsfunktion]) //Enkelt sätt att sortera det, dock inte med jämna nummer.
+
+    //skriva ut
+    ostream_iteror<int> oos{cout}
+    copy(begin(v), end(v), oos) //start, slut och var den ska skriva till. Fungerar som copy ovan.
+}
+//Övrigt:
+//Nämner många gånger om vikten att skippa loopar. Förutom till utskriften möjligen.
+//Det ska alltid gå att lösa med iterator.
+//Tänk på att det ska vara läsbart
+
+//Efter rasten ska ni kolla på algoritmer som kan vara användbara. Spc med strängar. GLHF BOI!
+
+//Map är som en dictionary
+map<string, int> map_name{};
+//Blir som en vector med string som keys. Där kan man då spara antalet förekomster av en sträng i int
+
+string s; //Längre mening av ord, räkna mängden av förekomster av specifika ord
+while(cin >> s)
+{
+m[s]++;
+//Slår upp m[s] som key, returnerar en pekare till ett key-value pair, och då kan vi inkrementera inten.
+//++ kommer göra att den initialiserar med 0 som förekomst på int.
+//++ operatorn körs på int, ifall man har en sträng som value används strängens ++. 
+//För mer information cppreference std::map
+//(nyckel s) 
+}
+for (auto it{begin(m)} ; it != end(m); it++)
+{
+cout << "Bokstaven/strängen " << it->first  << ": " << it->second << endl;
+//(first är nyckeln, second är value)
+}
+
+//Strängoperationer
